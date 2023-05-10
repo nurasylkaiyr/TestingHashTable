@@ -53,8 +53,21 @@ public class MyHashTable<K, V> {
         chainArray[index] = newNode;
         size++;
     }
-    public V get(K key){
 
+    //retrieve the value associated with a given key in the hash table
+    public V get(K key){
+        int index = hash(key);
+        HashNode<K, V> head = chainArray[index];
+
+        //If the key is found, the method returns the associated value
+        while (head != null) {
+            if (head.key.equals(key)) {
+                return head.value;
+            }
+            head = head.next;
+        }
+
+        return null;
     }
     public V remove(K key){
 
