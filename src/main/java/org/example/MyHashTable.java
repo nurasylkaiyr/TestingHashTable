@@ -18,10 +18,11 @@ public class MyHashTable<K, V> {
     private int M = 11;
     private int size;
     public MyHashTable(){
-
+        chainArray = new HashNode[M];
     }
     public MyHashTable(int M){
-
+        this.M = M;
+        chainArray = new HashNode[M];
     }
     private int hash(K key){
 
