@@ -110,8 +110,22 @@ public class MyHashTable<K, V> {
         }
         return false;
     }
-    public K getKey(V value){
 
+    //searches for a given value in the hash table and
+    // returns the corresponding key if it exists
+    public K getKey(V value){
+        //The method loops through all the elements in the hash table by iterating over each index in the array
+        //For each index, it starts with the first node of the linked list
+        for (int i = 0; i < M; i++) {
+            HashNode<K, V> head = chainArray[i];
+            while (head != null) {
+                if (head.value.equals(value)) { //checks if its value is equal to the given value
+                    return head.key;
+                }
+                head = head.next;
+            }
+        }
+        return null;
     }
 
 }
