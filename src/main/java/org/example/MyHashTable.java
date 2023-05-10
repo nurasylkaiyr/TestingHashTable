@@ -27,6 +27,7 @@ public class MyHashTable<K, V> {
         chainArray = new HashNode[M];
     }
     private int hash(K key){
+        //comte the hash code for a given key and return corresponding index
         int hashCode = key.hashCode();
         int index = Math.abs(hashCode) % M;
     }
