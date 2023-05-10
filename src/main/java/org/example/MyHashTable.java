@@ -27,12 +27,31 @@ public class MyHashTable<K, V> {
         chainArray = new HashNode[M];
     }
     private int hash(K key){
-        //comte the hash code for a given key and return corresponding index
+        //compute the hash code for a given key and return corresponding index
         int hashCode = key.hashCode();
         int index = Math.abs(hashCode) % M;
+        return index;
     }
-    public void put(K key, V value){
 
+    //adds a new key-value pair or updates the value associated with an existing key
+    public void put(K key, V value){
+        int index = hash(key);
+        HashNode<K, V> head = chainArray[index];
+
+        //Check if the key already exists
+        while(head != null){
+            if(head.key.equals(key)) {
+                head.value = value;
+                return;
+            }
+            head = head.next;
+        }
+
+        //Create a new HashNode and add it to the front of the linked list
+        HashNode<K, V> newNode = new HashNode<K, V>(key, value);
+        newNode.next = chainArray[index];
+        chainArray[index] = newNode;
+        size++;
     }
     public V get(K key){
 
