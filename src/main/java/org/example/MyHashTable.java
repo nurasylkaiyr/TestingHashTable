@@ -14,7 +14,7 @@ public class MyHashTable<K, V> {
             return "{" + key + " " + value + "}";
         }
     }
-    private HashNode<K, V>[] chainArray;
+    HashNode<K, V>[] chainArray;
     private int M = 11; //size of the hash table, which is set to 11 by default
     private int size; //the number of key-value pairs in the hash table
     public MyHashTable(){
