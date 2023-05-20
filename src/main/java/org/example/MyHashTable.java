@@ -94,6 +94,16 @@ public class MyHashTable<K, V> {
         }
         return null;
     }
+    public void remove(K key, V oldvalue, V newvalue){
+        int index = hash(key);
+        HashNode<K, V> head = chainArray[index];
+        while(head != null){
+            if(head.value.equals(oldvalue)) {
+                head.value = newvalue;
+            }
+            head = head.next;
+        }
+    }
 
     //checks if a given value is present in the hash table
     public boolean contains(V value){

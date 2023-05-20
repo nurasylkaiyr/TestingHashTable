@@ -22,6 +22,7 @@ public class Main {
         System.out.println("Student with key 2: " + student.getName() + " " + student.getAge());
 
 // remove a student by key
+
         Student removedStudent = table.remove(new MyTestingClass(1, "obj1"));
         System.out.println("Removed student: " + removedStudent.getName() + " " + removedStudent.getAge());
 
@@ -47,6 +48,8 @@ public class Main {
             Student value = new Student("student" + i, rand.nextInt(20) + 18);
             table.put(key2, value);
         }
+        MyHashTable ht = new MyHashTable();
+        ht.
 
         table.printBucketSizes();
     }
